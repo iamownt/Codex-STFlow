@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-15",
+  "updated": "2026-06-16",
   "environment": {
     "python": "3.12.7",
     "torch": "2.7.1+cu128",
@@ -47,6 +47,20 @@
       "local_mean_over_seeds": 0.55201304761072,
       "local_std_over_seeds": 0.0013440020965980524,
       "note": "Complete 3-seed local HEST run using the same UNI/STFlow settings as HCC; result is below the paper Table 1 value."
+    },
+    "HEST_PAAD_STFlow_UNI": {
+      "source_dataroot": "/home/user/st_data/hest_bench_linked",
+      "embed_dataroot": "/home/user/st_data/stflow_embeddings",
+      "result_glob": "repro/results/stflow_hest/paad_seed*_uni_v1_official_spatial_transformer::*/PAAD/results_kfold.json",
+      "paper_table1": {"mean": 0.507, "std": 0.004},
+      "local_seeds": [
+        {"seed": 1, "pearson_mean": 0.5057324625800054, "folds": [0.45918169014155863, 0.6092421817779541, 0.44877351582050323]},
+        {"seed": 2, "pearson_mean": 0.49570642406741783, "folds": [0.4539536261558533, 0.5957419973611832, 0.4374236486852169]},
+        {"seed": 3, "pearson_mean": 0.5035024298727513, "folds": [0.4638057504594326, 0.6158268651366234, 0.4308746740221977]}
+      ],
+      "local_mean_over_seeds": 0.5016471055067249,
+      "local_std_over_seeds": 0.004298219277898758,
+      "note": "Complete 3-seed local HEST run using the same UNI/STFlow settings as HCC; result is close to the paper Table 1 value."
     },
     "HEST_READ_STFlow_UNI": {
       "source_dataroot": "/home/user/st_data/hest_bench_linked",
