@@ -26,7 +26,7 @@ def save_hdf5(output_fpath,
 
             if key not in f: # if key does not exist, create dataset
                 data_type = val.dtype
-                if data_type == np.object_: 
+                if data_type == np.object_ or data_type.kind in {"S", "U"}:
                     data_type = h5py.string_dtype(encoding='utf-8')
                 if auto_chunk:
                     chunks = True # let h5py decide chunk size
@@ -50,7 +50,8 @@ def save_hdf5(output_fpath,
             else:
                 dset = f[key]
                 dset.resize(len(dset) + data_shape[0], axis=0)
-                assert dset.dtype == val.dtype
+                if dset.dtype != val.dtype:
+                    val = val.astype(dset.dtype, copy=False)
                 dset[-data_shape[0]:] = val
         
         # if attr_dict is not None:

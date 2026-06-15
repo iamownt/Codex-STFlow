@@ -7,6 +7,20 @@
   },
   "table1_targets": "repro/table1_stflow_targets.json",
   "completed_runs": {
+    "HEST_COAD_STFlow_UNI": {
+      "source_dataroot": "/home/user/st_data/hest_bench_linked",
+      "embed_dataroot": "/home/user/st_data/stflow_embeddings",
+      "result_glob": "repro/results/stflow_hest/coad_seed*_uni_v1_official_spatial_transformer::*/COAD/results_kfold.json",
+      "paper_table1": {"mean": 0.326, "std": 0.009},
+      "local_seeds": [
+        {"seed": 1, "pearson_mean": 0.33183207201058396, "folds": [0.28576098349381934, 0.3779031605273485]},
+        {"seed": 2, "pearson_mean": 0.3442268734052777, "folds": [0.3132755113393068, 0.3751782354712486]},
+        {"seed": 3, "pearson_mean": 0.32663701819605195, "folds": [0.273664972379338, 0.3796090640127659]}
+      ],
+      "local_mean_over_seeds": 0.33423198787063785,
+      "local_std_over_seeds": 0.007378818725328382,
+      "note": "Complete 3-seed local HEST run using the same UNI/STFlow settings as HCC; result is close to the paper Table 1 value."
+    },
     "HEST_HCC_STFlow_UNI": {
       "source_dataroot": "/home/user/st_data/hest_bench_linked",
       "embed_dataroot": "/home/user/st_data/stflow_embeddings",
