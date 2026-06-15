@@ -48,6 +48,20 @@
       "local_std_over_seeds": 0.0013440020965980524,
       "note": "Complete 3-seed local HEST run using the same UNI/STFlow settings as HCC; result is below the paper Table 1 value."
     },
+    "HEST_READ_STFlow_UNI": {
+      "source_dataroot": "/home/user/st_data/hest_bench_linked",
+      "embed_dataroot": "/home/user/st_data/stflow_embeddings",
+      "result_glob": "repro/results/stflow_hest/read_seed*_uni_v1_official_spatial_transformer::*/READ/results_kfold.json",
+      "paper_table1": {"mean": 0.24, "std": 0.014},
+      "local_seeds": [
+        {"seed": 1, "pearson_mean": 0.2359159879630897, "folds": [0.2710145499091595, 0.2008174260170199]},
+        {"seed": 2, "pearson_mean": 0.24651536983437836, "folds": [0.27217480588704346, 0.22085593378171325]},
+        {"seed": 3, "pearson_mean": 0.2592329092882574, "folds": [0.2785696813836694, 0.23989613719284533]}
+      ],
+      "local_mean_over_seeds": 0.24722142236190847,
+      "local_std_over_seeds": 0.009532176654179896,
+      "note": "Complete 3-seed local HEST run using the same UNI/STFlow settings as HCC; result is close to the paper Table 1 value. Some per-gene Pearson values are NaN for constant genes and are excluded by the evaluator before averaging."
+    },
     "HEST_SKCM_STFlow_UNI": {
       "source_dataroot": "/home/user/st_data/hest_bench_linked",
       "embed_dataroot": "/home/user/st_data/stflow_embeddings",
