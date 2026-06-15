@@ -62,6 +62,20 @@
       "local_std_over_seeds": 0.004298219277898758,
       "note": "Complete 3-seed local HEST run using the same UNI/STFlow settings as HCC; result is close to the paper Table 1 value."
     },
+    "HEST_PRAD_STFlow_UNI": {
+      "source_dataroot": "/home/user/st_data/hest_bench_linked",
+      "embed_dataroot": "/home/user/st_data/stflow_embeddings",
+      "result_glob": "repro/results/stflow_hest/prad_seed*_uni_v1_official_spatial_transformer::*/PRAD/results_kfold.json",
+      "paper_table1": {"mean": 0.421, "std": 0.002},
+      "local_seeds": [
+        {"seed": 1, "pearson_mean": 0.4187977623194456, "folds": [0.41584802985191344, 0.42174749478697776]},
+        {"seed": 2, "pearson_mean": 0.41091471895575526, "folds": [0.39921196579933166, 0.4226174721121788]},
+        {"seed": 3, "pearson_mean": 0.4112780284881592, "folds": [0.4047033321857452, 0.4178527247905731]}
+      ],
+      "local_mean_over_seeds": 0.41366350325445334,
+      "local_std_over_seeds": 0.003633497907336233,
+      "note": "Complete 3-seed local HEST run using the same UNI/STFlow settings as HCC; result is close to but slightly below the paper Table 1 value. Seed 3 emitted a constant-gene Pearson warning; NaN Pearson values are excluded by the evaluator before averaging."
+    },
     "HEST_READ_STFlow_UNI": {
       "source_dataroot": "/home/user/st_data/hest_bench_linked",
       "embed_dataroot": "/home/user/st_data/stflow_embeddings",
