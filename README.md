@@ -22,9 +22,10 @@ Completed STFlow runs:
 | --- | --- | --- | --- | --- |
 | HEST | HCC | UNI | `0.1172 +/- 0.0019` over 3 seeds | `0.124 +/- 0.004` |
 | HEST | LUNG | UNI | `0.5520 +/- 0.0013` over 3 seeds | `0.610 +/- 0.002` |
+| HEST | SKCM | UNI | `0.6737 +/- 0.0094` over 3 seeds | `0.704 +/- 0.005` |
 | STImage | Colon | UNI | `0.5506 +/- 0.0903` over 3 constructed splits | `0.323 +/- 0.015` |
 
-The HEST HCC run is close to the paper value. The HEST LUNG run is complete over the same 3 seeds but remains below the paper value. The STImage Colon run uses a locally reconstructed split/HVG protocol because upstream STFlow does not ship official STImage splits or gene lists. It matches the appendix selection rule for Colon: 4 human Visium cancer slides, average 4024 spots.
+The HEST HCC run is close to the paper value. HEST LUNG and SKCM are complete over the same 3 seeds but remain below the paper values. The STImage Colon run uses a locally reconstructed split/HVG protocol because upstream STFlow does not ship official STImage splits or gene lists. It matches the appendix selection rule for Colon: 4 human Visium cancer slides, average 4024 spots.
 
 Detailed metrics are tracked in `repro/results_summary.json`. Full JSON outputs are local under ignored `repro/results/`.
 
@@ -178,6 +179,6 @@ CUDA_VISIBLE_DEVICES=1 .venv/bin/python -m stflow.app.flow.train \
 
 ## Next Runs
 
-HEST can now be extended by extracting embeddings and running STFlow for the remaining Table 1 tasks. The highest-priority next tasks are `IDC`, `SKCM`, and `PRAD` because they are prominent in the paper and exercise different slide counts.
+HEST can now be extended by extracting embeddings and running STFlow for the remaining Table 1 tasks. The highest-priority next tasks are `IDC`, `PRAD`, and `CCRCC` because they are prominent in the paper and exercise different slide counts.
 
 For STImage, repeat the same prep/extract/train flow for `Breast`, `Brain`, `Skin`, `Mouth`, `Prostate`, and `Stomach`. Exact reproduction of the STImage row still depends on matching the authors' unpublished split seeds and HVG lists.
