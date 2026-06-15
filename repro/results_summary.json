@@ -1,0 +1,40 @@
+{
+  "updated": "2026-06-15",
+  "environment": {
+    "python": "3.12.7",
+    "torch": "2.7.1+cu128",
+    "gpu_used": "CUDA_VISIBLE_DEVICES=1, logical cuda:0, NVIDIA H100 NVL"
+  },
+  "table1_targets": "repro/table1_stflow_targets.json",
+  "completed_runs": {
+    "HEST_HCC_STFlow_UNI": {
+      "source_dataroot": "/home/user/st_data/hest_bench_linked",
+      "embed_dataroot": "/home/user/st_data/stflow_embeddings",
+      "result_glob": "repro/results/stflow_hest/hcc_seed*_uni_v1_official_spatial_transformer::*/HCC/results_kfold.json",
+      "paper_table1": {"mean": 0.124, "std": 0.004},
+      "local_seeds": [
+        {"seed": 1, "pearson_mean": 0.11951492056250572, "folds": [0.1041377547988668, 0.13489208632614463]},
+        {"seed": 2, "pearson_mean": 0.1149685564916581, "folds": [0.08960627181455492, 0.14033084116876127]},
+        {"seed": 3, "pearson_mean": 0.11702363706775942, "folds": [0.10430714005604386, 0.12974013407947496]}
+      ],
+      "local_mean_over_seeds": 0.11716903804064108,
+      "local_std_over_seeds": 0.0018588908249024434
+    },
+    "STImage_Colon_STFlow_UNI_constructed": {
+      "source_dataroot": "/home/user/st_data/stimage_bench",
+      "embed_dataroot": "/home/user/st_data/stimage_embeddings",
+      "result": "repro/results/stflow_stimage/colon_splits123_uni_v1_official_spatial_transformer::26-06-15-22-49-49/Colon/results_kfold.json",
+      "paper_table1": {"mean": 0.323, "std": 0.015},
+      "local_split_means": [0.6782412439584732, 0.4858765357919037, 0.4875410686247051],
+      "local_mean": 0.5505529494583606,
+      "local_std": 0.09029181609887084,
+      "caveat": "Constructed from the paper appendix rule: human Visium cancer Colon samples with an 8:1:1 slide split and locally computed top 50 HVGs. The official STImage splits/HVG list are not present in upstream STFlow."
+    },
+    "HEST_HCC_UNI_ridge_smoke": {
+      "result": "repro/results/hest_linprobe/hcc_uni_smoke::26-06-15-22-34-43/HCC/uni_v1_official/results_kfold.json",
+      "pearson_mean": 0.019866455399169355,
+      "pearson_std": 0.0040145959037181465,
+      "note": "Ridge linear probe smoke test only; Table 1 foundation-model baselines use random forest."
+    }
+  }
+}

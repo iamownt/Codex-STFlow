@@ -1,0 +1,28 @@
+{
+  "source": "Huang et al. 2025, arXiv:2506.05361, Table 1",
+  "metric": "Pearson correlation over top 50 highly variable genes after log1p normalization",
+  "note": "Each object stores mean and standard deviation when Table 1 reports both values.",
+  "HEST": {
+    "IDC": {"mean": 0.587, "std": 0.003},
+    "PRAD": {"mean": 0.421, "std": 0.002},
+    "PAAD": {"mean": 0.507, "std": 0.004},
+    "SKCM": {"mean": 0.704, "std": 0.005},
+    "COAD": {"mean": 0.326, "std": 0.009},
+    "READ": {"mean": 0.240, "std": 0.014},
+    "CCRCC": {"mean": 0.332, "std": 0.003},
+    "HCC": {"mean": 0.124, "std": 0.004},
+    "LUNG": {"mean": 0.610, "std": 0.002},
+    "LYMPH": {"mean": 0.305, "std": 0.001},
+    "Average": {"mean": 0.415}
+  },
+  "STImage": {
+    "Breast": {"mean": 0.404, "std": 0.024},
+    "Brain": {"mean": 0.357, "std": 0.001},
+    "Skin": {"mean": 0.310, "std": 0.011},
+    "Mouth": {"mean": 0.146, "std": 0.015},
+    "Stomach": {"mean": 0.305, "std": 0.041},
+    "Prostate": {"mean": 0.210, "std": 0.024},
+    "Colon": {"mean": 0.323, "std": 0.015},
+    "Average": {"mean": 0.293}
+  }
+}

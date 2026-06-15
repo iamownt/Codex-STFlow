@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+stflow.egg-info/
+
+repro/artifacts/
+repro/embeddings/
+repro/results/
+repro/work/
+
+wandb/
+runs/
+outputs/

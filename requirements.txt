@@ -1,0 +1,23 @@
+--extra-index-url https://download.pytorch.org/whl/cu128
+
+anndata
+einops
+h5py
+huggingface-hub
+matplotlib
+mygene
+numpy
+pandas
+pillow
+scanpy
+scikit-learn
+scipy
+scprep
+socksio
+timm
+torch==2.7.1+cu128
+torch-geometric
+torchvision==0.22.1+cu128
+tqdm
+transformers
+wandb
