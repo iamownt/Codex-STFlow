@@ -34,6 +34,20 @@
       "local_mean_over_seeds": 0.11716903804064108,
       "local_std_over_seeds": 0.0018588908249024434
     },
+    "HEST_IDC_STFlow_UNI": {
+      "source_dataroot": "/home/user/st_data/hest_bench_linked",
+      "embed_dataroot": "/home/user/st_data/stflow_embeddings",
+      "result_glob": "repro/results/stflow_hest/idc_seed*_uni_v1_official_spatial_transformer::*/IDC/results_kfold.json",
+      "paper_table1": {"mean": 0.587, "std": 0.003},
+      "local_seeds": [
+        {"seed": 1, "pearson_mean": 0.5903209782205522, "folds": [0.4866602697223425, 0.6026356533169747, 0.5680519120395183, 0.7039360778033733]},
+        {"seed": 2, "pearson_mean": 0.5949386297352612, "folds": [0.4857030858844519, 0.6013147446513176, 0.5711382921040058, 0.7215983963012695]},
+        {"seed": 3, "pearson_mean": 0.5927787364042707, "folds": [0.4843318826151517, 0.5982351856306195, 0.5699729987978935, 0.7185748785734176]}
+      ],
+      "local_mean_over_seeds": 0.592679448120028,
+      "local_std_over_seeds": 0.0018864552296771835,
+      "note": "Complete 3-seed local HEST run using the same UNI/STFlow settings as HCC; result is close to the paper Table 1 value."
+    },
     "HEST_LUNG_STFlow_UNI": {
       "source_dataroot": "/home/user/st_data/hest_bench_linked",
       "embed_dataroot": "/home/user/st_data/stflow_embeddings",
