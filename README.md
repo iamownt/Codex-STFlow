@@ -23,13 +23,14 @@ Completed STFlow runs:
 | HEST | COAD | UNI | `0.3342 +/- 0.0074` over 3 seeds | `0.326 +/- 0.009` |
 | HEST | HCC | UNI | `0.1172 +/- 0.0019` over 3 seeds | `0.124 +/- 0.004` |
 | HEST | LUNG | UNI | `0.5520 +/- 0.0013` over 3 seeds | `0.610 +/- 0.002` |
+| HEST | LYMPH | UNI | `0.2529 +/- 0.0030` over 3 seeds | `0.305 +/- 0.001` |
 | HEST | PAAD | UNI | `0.5016 +/- 0.0043` over 3 seeds | `0.507 +/- 0.004` |
 | HEST | PRAD | UNI | `0.4137 +/- 0.0036` over 3 seeds | `0.421 +/- 0.002` |
 | HEST | READ | UNI | `0.2472 +/- 0.0095` over 3 seeds | `0.240 +/- 0.014` |
 | HEST | SKCM | UNI | `0.6737 +/- 0.0094` over 3 seeds | `0.704 +/- 0.005` |
 | STImage | Colon | UNI | `0.5506 +/- 0.0903` over 3 constructed splits | `0.323 +/- 0.015` |
 
-The HEST HCC, COAD, PAAD, PRAD, and READ runs are close to the paper values. HEST LUNG and SKCM are complete over the same 3 seeds but remain below the paper values. The STImage Colon run uses a locally reconstructed split/HVG protocol because upstream STFlow does not ship official STImage splits or gene lists. It matches the appendix selection rule for Colon: 4 human Visium cancer slides, average 4024 spots.
+The HEST HCC, COAD, PAAD, PRAD, and READ runs are close to the paper values. HEST LUNG, LYMPH, and SKCM are complete over the same 3 seeds but remain below the paper values. The local HEST-Benchmark folder for the paper's LYMPH row is `LYMPH_IDC`. The STImage Colon run uses a locally reconstructed split/HVG protocol because upstream STFlow does not ship official STImage splits or gene lists. It matches the appendix selection rule for Colon: 4 human Visium cancer slides, average 4024 spots.
 
 Detailed metrics are tracked in `repro/results_summary.json`. Full JSON outputs are local under ignored `repro/results/`.
 
@@ -184,6 +185,6 @@ CUDA_VISIBLE_DEVICES=1 .venv/bin/python -m stflow.app.flow.train \
 
 ## Next Runs
 
-HEST can now be extended by extracting embeddings and running STFlow for the remaining Table 1 tasks. The highest-priority next tasks are `IDC`, `LYMPH`, and `CCRCC` because they are prominent in the paper and exercise different slide counts.
+HEST can now be extended by extracting embeddings and running STFlow for the remaining Table 1 tasks. The highest-priority next tasks are `IDC` and `CCRCC` because they are prominent in the paper and exercise different slide counts.
 
 For STImage, repeat the same prep/extract/train flow for `Breast`, `Brain`, `Skin`, `Mouth`, `Prostate`, and `Stomach`. Exact reproduction of the STImage row still depends on matching the authors' unpublished split seeds and HVG lists.

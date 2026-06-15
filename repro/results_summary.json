@@ -48,6 +48,21 @@
       "local_std_over_seeds": 0.0013440020965980524,
       "note": "Complete 3-seed local HEST run using the same UNI/STFlow settings as HCC; result is below the paper Table 1 value."
     },
+    "HEST_LYMPH_STFlow_UNI": {
+      "source_dataroot": "/home/user/st_data/hest_bench_linked",
+      "local_dataset_dir": "LYMPH_IDC",
+      "embed_dataroot": "/home/user/st_data/stflow_embeddings",
+      "result_glob": "repro/results/stflow_hest/lymph_seed*_uni_v1_official_spatial_transformer::*/LYMPH_IDC/results_kfold.json",
+      "paper_table1": {"mean": 0.305, "std": 0.001},
+      "local_seeds": [
+        {"seed": 1, "pearson_mean": 0.25106940083554946, "folds": [0.27081844955682755, 0.20793689055368303, 0.2800912934355438, 0.24543096979614348]},
+        {"seed": 2, "pearson_mean": 0.2571847600542242, "folds": [0.2828646057844162, 0.20857788434252142, 0.2953302690386772, 0.24196628105128185]},
+        {"seed": 3, "pearson_mean": 0.2504898952133954, "folds": [0.2786432916671038, 0.20812561942264438, 0.290486051235348, 0.2247046185284853]}
+      ],
+      "local_mean_over_seeds": 0.25291468536772305,
+      "local_std_over_seeds": 0.0030286531729192415,
+      "note": "Complete 3-seed local HEST run using the same UNI/STFlow settings as HCC; result is below the paper Table 1 value. The paper row is named LYMPH, while the HEST-Benchmark folder is LYMPH_IDC."
+    },
     "HEST_PAAD_STFlow_UNI": {
       "source_dataroot": "/home/user/st_data/hest_bench_linked",
       "embed_dataroot": "/home/user/st_data/stflow_embeddings",
