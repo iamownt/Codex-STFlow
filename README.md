@@ -31,8 +31,9 @@ Completed STFlow runs:
 | HEST | READ | UNI | `0.2472 +/- 0.0095` over 3 seeds | `0.240 +/- 0.014` |
 | HEST | SKCM | UNI | `0.6737 +/- 0.0094` over 3 seeds | `0.704 +/- 0.005` |
 | STImage | Colon | UNI | `0.5506 +/- 0.0903` over 3 constructed splits | `0.323 +/- 0.015` |
+| STImage | Skin | UNI | `0.0813 +/- 0.0717` over 3 constructed splits | `0.310 +/- 0.011` |
 
-The HEST COAD, CCRCC, HCC, IDC, PAAD, PRAD, and READ runs are close to the paper values. HEST LUNG, LYMPH, and SKCM are complete over the same 3 seeds but remain below the paper values. Across the 10 completed HEST per-dataset rows, the local average is `0.4018` versus the paper's `0.415`. The local HEST-Benchmark folder for the paper's LYMPH row is `LYMPH_IDC`. The STImage Colon run uses a locally reconstructed split/HVG protocol because upstream STFlow does not ship official STImage splits or gene lists. It matches the appendix selection rule for Colon: 4 human Visium cancer slides, average 4024 spots.
+The HEST COAD, CCRCC, HCC, IDC, PAAD, PRAD, and READ runs are close to the paper values. HEST LUNG, LYMPH, and SKCM are complete over the same 3 seeds but remain below the paper values. Across the 10 completed HEST per-dataset rows, the local average is `0.4018` versus the paper's `0.415`. The local HEST-Benchmark folder for the paper's LYMPH row is `LYMPH_IDC`. The STImage Colon and Skin runs use a locally reconstructed split/HVG protocol because upstream STFlow does not ship official STImage splits or gene lists. They match the appendix selection rule for human Visium cancer slides, but Skin remains far below the paper value.
 
 Detailed metrics are tracked in `repro/results_summary.json`. Full JSON outputs are local under ignored `repro/results/`.
 
@@ -189,4 +190,4 @@ CUDA_VISIBLE_DEVICES=1 .venv/bin/python -m stflow.app.flow.train \
 
 The HEST Table 1 per-dataset STFlow rows are complete locally for UNI.
 
-For STImage, repeat the same prep/extract/train flow for `Breast`, `Brain`, `Skin`, `Mouth`, `Prostate`, and `Stomach`. Exact reproduction of the STImage row still depends on matching the authors' unpublished split seeds and HVG lists.
+For STImage, repeat the same prep/extract/train flow for `Breast`, `Brain`, `Mouth`, `Prostate`, and `Stomach`. Exact reproduction of the STImage row still depends on matching the authors' unpublished split seeds and HVG lists.

@@ -157,6 +157,16 @@
       "local_std": 0.09029181609887084,
       "caveat": "Constructed from the paper appendix rule: human Visium cancer Colon samples with an 8:1:1 slide split and locally computed top 50 HVGs. The official STImage splits/HVG list are not present in upstream STFlow."
     },
+    "STImage_Skin_STFlow_UNI_constructed": {
+      "source_dataroot": "/home/user/st_data/stimage_bench",
+      "embed_dataroot": "/home/user/st_data/stimage_embeddings",
+      "result": "repro/results/stflow_stimage/skin_splits123_uni_v1_official_spatial_transformer::26-06-16-11-51-34/Skin/results_kfold.json",
+      "paper_table1": {"mean": 0.310, "std": 0.011},
+      "local_split_means": [-0.01999923387542367, 0.12727257304592057, 0.13665521899238228],
+      "local_mean": 0.08130951938762639,
+      "local_std": 0.07173844216794012,
+      "caveat": "Constructed from the paper appendix rule: human Visium cancer Skin samples with an 8:1:1 slide split and locally computed top 50 HVGs. The official STImage splits/HVG list are not present in upstream STFlow. With only four selected slides, local split seeds 2 and 3 produce the same slide assignment."
+    },
     "HEST_HCC_UNI_ridge_smoke": {
       "result": "repro/results/hest_linprobe/hcc_uni_smoke::26-06-15-22-34-43/HCC/uni_v1_official/results_kfold.json",
       "pearson_mean": 0.019866455399169355,
