@@ -6,6 +6,19 @@
     "gpu_used": "NVIDIA H100 NVL; jobs use logical cuda:0 with CUDA_VISIBLE_DEVICES set per run"
   },
   "table1_targets": "repro/table1_stflow_targets.json",
+  "local_aggregates": {
+    "HEST_STFlow_UNI_mean_over_datasets": {
+      "datasets": ["CCRCC", "COAD", "HCC", "IDC", "LUNG", "LYMPH", "PAAD", "PRAD", "READ", "SKCM"],
+      "local_mean": 0.40179077332652396,
+      "paper_table1": {"mean": 0.415}
+    },
+    "STImage_STFlow_UNI_constructed_mean_over_datasets": {
+      "datasets": ["Brain", "Breast", "Colon", "Mouth", "Prostate", "Skin", "Stomach"],
+      "local_mean": 0.30123110873951753,
+      "paper_table1": {"mean": 0.293},
+      "caveat": "Mean over locally reconstructed STImage per-dataset rows. Exact reproduction still depends on the authors' unpublished split seeds and HVG lists."
+    }
+  },
   "completed_runs": {
     "HEST_COAD_STFlow_UNI": {
       "source_dataroot": "/home/user/st_data/hest_bench_linked",
