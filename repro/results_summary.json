@@ -157,6 +157,16 @@
       "local_std": 0.09029181609887084,
       "caveat": "Constructed from the paper appendix rule: human Visium cancer Colon samples with an 8:1:1 slide split and locally computed top 50 HVGs. The official STImage splits/HVG list are not present in upstream STFlow."
     },
+    "STImage_Mouth_STFlow_UNI_constructed": {
+      "source_dataroot": "/home/user/st_data/stimage_bench",
+      "embed_dataroot": "/home/user/st_data/stimage_embeddings",
+      "result": "repro/results/stflow_stimage/mouth_splits123_uni_v1_official_spatial_transformer::26-06-16-15-39-44/Mouth/results_kfold.json",
+      "paper_table1": {"mean": 0.146, "std": 0.015},
+      "local_split_means": [0.33073417566716673, 0.21459488376975058, 0.24881153468042613],
+      "local_mean": 0.26471353137244785,
+      "local_std": 0.04872876566398339,
+      "caveat": "Constructed from the paper appendix rule: human Visium cancer Mouth samples with an 8:1:1 slide split and locally computed top 50 HVGs. The official STImage splits/HVG list are not present in upstream STFlow."
+    },
     "STImage_Prostate_STFlow_UNI_constructed": {
       "source_dataroot": "/home/user/st_data/stimage_bench",
       "embed_dataroot": "/home/user/st_data/stimage_embeddings",
