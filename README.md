@@ -30,6 +30,7 @@ Completed STFlow runs:
 | HEST | PRAD | UNI | `0.4137 +/- 0.0036` over 3 seeds | `0.421 +/- 0.002` |
 | HEST | READ | UNI | `0.2472 +/- 0.0095` over 3 seeds | `0.240 +/- 0.014` |
 | HEST | SKCM | UNI | `0.6737 +/- 0.0094` over 3 seeds | `0.704 +/- 0.005` |
+| STImage | Breast | UNI | `0.4069 +/- 0.0720` over 3 constructed splits | `0.404 +/- 0.024` |
 | STImage | Brain | UNI | `0.4563 +/- 0.1358` over 3 constructed splits | `0.357 +/- 0.001` |
 | STImage | Colon | UNI | `0.5506 +/- 0.0903` over 3 constructed splits | `0.323 +/- 0.015` |
 | STImage | Mouth | UNI | `0.2647 +/- 0.0487` over 3 constructed splits | `0.146 +/- 0.015` |
@@ -37,7 +38,7 @@ Completed STFlow runs:
 | STImage | Skin | UNI | `0.0813 +/- 0.0717` over 3 constructed splits | `0.310 +/- 0.011` |
 | STImage | Stomach | UNI | `-0.0020 +/- 0.1067` over 3 constructed splits | `0.305 +/- 0.041` |
 
-The HEST COAD, CCRCC, HCC, IDC, PAAD, PRAD, and READ runs are close to the paper values. HEST LUNG, LYMPH, and SKCM are complete over the same 3 seeds but remain below the paper values. Across the 10 completed HEST per-dataset rows, the local average is `0.4018` versus the paper's `0.415`. The local HEST-Benchmark folder for the paper's LYMPH row is `LYMPH_IDC`. The STImage Brain, Colon, Mouth, Prostate, Skin, and Stomach runs use a locally reconstructed split/HVG protocol because upstream STFlow does not ship official STImage splits or gene lists. They match the appendix selection rule for human Visium cancer slides, but Skin and Stomach remain far below the paper values.
+The HEST COAD, CCRCC, HCC, IDC, PAAD, PRAD, and READ runs are close to the paper values. HEST LUNG, LYMPH, and SKCM are complete over the same 3 seeds but remain below the paper values. Across the 10 completed HEST per-dataset rows, the local average is `0.4018` versus the paper's `0.415`. The local HEST-Benchmark folder for the paper's LYMPH row is `LYMPH_IDC`. The STImage Breast, Brain, Colon, Mouth, Prostate, Skin, and Stomach runs use a locally reconstructed split/HVG protocol because upstream STFlow does not ship official STImage splits or gene lists. They match the appendix selection rule for human Visium cancer slides. Breast matches the paper value closely under this constructed protocol, while Skin and Stomach remain far below the paper values.
 
 Detailed metrics are tracked in `repro/results_summary.json`. Full JSON outputs are local under ignored `repro/results/`.
 
@@ -193,6 +194,6 @@ CUDA_VISIBLE_DEVICES=1 .venv/bin/python -m stflow.app.flow.train \
 
 ## Next Runs
 
-The HEST Table 1 per-dataset STFlow rows are complete locally for UNI.
+The HEST and STImage Table 1 per-dataset STFlow rows are complete locally for UNI.
 
-For STImage, repeat the same prep/extract/train flow for `Breast`. Exact reproduction of the STImage row still depends on matching the authors' unpublished split seeds and HVG lists.
+Exact reproduction of the STImage rows still depends on matching the authors' unpublished split seeds and HVG lists; this workspace uses locally reconstructed splits and HVGs that follow the appendix sample-selection rule.

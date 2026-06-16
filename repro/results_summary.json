@@ -147,6 +147,16 @@
       "local_std_over_seeds": 0.009425482580084299,
       "note": "Complete 3-seed local HEST run using the same UNI/STFlow settings as HCC; result is below the paper Table 1 value."
     },
+    "STImage_Breast_STFlow_UNI_constructed": {
+      "source_dataroot": "/home/user/st_data/stimage_bench",
+      "embed_dataroot": "/home/user/st_data/stimage_embeddings",
+      "result": "repro/results/stflow_stimage/breast_splits123_uni_v1_official_spatial_transformer::26-06-16-17-47-01/Breast/results_kfold.json",
+      "paper_table1": {"mean": 0.404, "std": 0.024},
+      "local_split_means": [0.5041973606869579, 0.3840948461089283, 0.33240974591579286],
+      "local_mean": 0.406900650903893,
+      "local_std": 0.07196214141917992,
+      "caveat": "Constructed from the paper appendix rule: human Visium cancer Breast samples with an 8:1:1 slide split and locally computed top 50 HVGs. The official STImage splits/HVG list are not present in upstream STFlow. The evaluator excludes NaN Pearson values from constant genes before aggregate averaging."
+    },
     "STImage_Brain_STFlow_UNI_constructed": {
       "source_dataroot": "/home/user/st_data/stimage_bench",
       "embed_dataroot": "/home/user/st_data/stimage_embeddings",
