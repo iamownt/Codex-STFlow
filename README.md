@@ -33,8 +33,9 @@ Completed STFlow runs:
 | STImage | Colon | UNI | `0.5506 +/- 0.0903` over 3 constructed splits | `0.323 +/- 0.015` |
 | STImage | Prostate | UNI | `0.3509 +/- 0.0212` over 3 constructed splits | `0.210 +/- 0.024` |
 | STImage | Skin | UNI | `0.0813 +/- 0.0717` over 3 constructed splits | `0.310 +/- 0.011` |
+| STImage | Stomach | UNI | `-0.0020 +/- 0.1067` over 3 constructed splits | `0.305 +/- 0.041` |
 
-The HEST COAD, CCRCC, HCC, IDC, PAAD, PRAD, and READ runs are close to the paper values. HEST LUNG, LYMPH, and SKCM are complete over the same 3 seeds but remain below the paper values. Across the 10 completed HEST per-dataset rows, the local average is `0.4018` versus the paper's `0.415`. The local HEST-Benchmark folder for the paper's LYMPH row is `LYMPH_IDC`. The STImage Colon, Prostate, and Skin runs use a locally reconstructed split/HVG protocol because upstream STFlow does not ship official STImage splits or gene lists. They match the appendix selection rule for human Visium cancer slides, but Skin remains far below the paper value.
+The HEST COAD, CCRCC, HCC, IDC, PAAD, PRAD, and READ runs are close to the paper values. HEST LUNG, LYMPH, and SKCM are complete over the same 3 seeds but remain below the paper values. Across the 10 completed HEST per-dataset rows, the local average is `0.4018` versus the paper's `0.415`. The local HEST-Benchmark folder for the paper's LYMPH row is `LYMPH_IDC`. The STImage Colon, Prostate, Skin, and Stomach runs use a locally reconstructed split/HVG protocol because upstream STFlow does not ship official STImage splits or gene lists. They match the appendix selection rule for human Visium cancer slides, but Skin and Stomach remain far below the paper values.
 
 Detailed metrics are tracked in `repro/results_summary.json`. Full JSON outputs are local under ignored `repro/results/`.
 
@@ -184,6 +185,7 @@ CUDA_VISIBLE_DEVICES=1 .venv/bin/python -m stflow.app.flow.train \
 - Added GPU device selection for feature extraction/training.
 - Replaced the `scvi-tools` ZINB dependency with a small Torch implementation.
 - Fixed denoiser initialization, JSON serialization of metric scalars, and optional STImage validation/test evaluation.
+- Excluded non-finite per-gene Pearson values from aggregate metrics for constant-gene evaluation cases.
 - Fixed HDF5 embedding append dtype handling for larger HEST slides.
 - Added scripts for HEST symlink layout, STImage-Bench construction, and direct STImage embedding extraction.
 
@@ -191,4 +193,4 @@ CUDA_VISIBLE_DEVICES=1 .venv/bin/python -m stflow.app.flow.train \
 
 The HEST Table 1 per-dataset STFlow rows are complete locally for UNI.
 
-For STImage, repeat the same prep/extract/train flow for `Breast`, `Brain`, `Mouth`, and `Stomach`. Exact reproduction of the STImage row still depends on matching the authors' unpublished split seeds and HVG lists.
+For STImage, repeat the same prep/extract/train flow for `Breast`, `Brain`, and `Mouth`. Exact reproduction of the STImage row still depends on matching the authors' unpublished split seeds and HVG lists.

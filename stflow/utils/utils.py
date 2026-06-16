@@ -31,6 +31,8 @@ def merge_fold_results(arr):
         for item in dict['pearson_corrs']:
             gene_name = item['name']
             correlation = item['pearson_corr']
+            if not np.isfinite(correlation):
+                continue
             aggr_dict[gene_name] = aggr_dict.get(gene_name, []) + [correlation]
     
     aggr_results = []
@@ -48,8 +50,8 @@ def merge_fold_results(arr):
         
     return {
         "pearson_corrs": aggr_results,
-        "pearson_mean": float(np.mean(mean_per_split)),
-        "pearson_std": float(np.std(mean_per_split)),
+        "pearson_mean": float(np.nanmean(mean_per_split)),
+        "pearson_std": float(np.nanstd(mean_per_split)),
         "mean_per_split": [float(x) for x in mean_per_split],
     }
 

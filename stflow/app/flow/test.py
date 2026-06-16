@@ -28,14 +28,15 @@ def metric_func(preds_all: np.ndarray, y_test: np.ndarray, genes: list):
         }
         pearson_genes.append(score_dict)
 
+    pearson_corrs_arr = np.asarray(pearson_corrs, dtype=float)
     if n_nan_genes > 0:
         print(f"Warning: {n_nan_genes} genes have NaN Pearson correlation")
 
     return {'l2_errors': list(errors), 
             'r2_scores': list(r2_scores),
             'pearson_corrs': pearson_genes,
-            'pearson_mean': float(np.mean(pearson_corrs)),
-            'pearson_std': float(np.std(pearson_corrs)),
+            'pearson_mean': float(np.nanmean(pearson_corrs_arr)),
+            'pearson_std': float(np.nanstd(pearson_corrs_arr)),
             'l2_error_q1': float(np.percentile(errors, 25)),
             'l2_error_q2': float(np.median(errors)),
             'l2_error_q3': float(np.percentile(errors, 75)),
