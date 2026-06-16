@@ -3,7 +3,7 @@
   "environment": {
     "python": "3.12.7",
     "torch": "2.7.1+cu128",
-    "gpu_used": "CUDA_VISIBLE_DEVICES=1, logical cuda:0, NVIDIA H100 NVL"
+    "gpu_used": "NVIDIA H100 NVL; jobs use logical cuda:0 with CUDA_VISIBLE_DEVICES set per run"
   },
   "table1_targets": "repro/table1_stflow_targets.json",
   "completed_runs": {
@@ -20,6 +20,20 @@
       "local_mean_over_seeds": 0.33423198787063785,
       "local_std_over_seeds": 0.007378818725328382,
       "note": "Complete 3-seed local HEST run using the same UNI/STFlow settings as HCC; result is close to the paper Table 1 value."
+    },
+    "HEST_CCRCC_STFlow_UNI": {
+      "source_dataroot": "/home/user/st_data/hest_bench_linked",
+      "embed_dataroot": "/home/user/st_data/stflow_embeddings",
+      "result_glob": "repro/results/stflow_hest/ccrcc_seed*_uni_v1_official_spatial_transformer::*/CCRCC/results_kfold.json",
+      "paper_table1": {"mean": 0.332, "std": 0.003},
+      "local_seeds": [
+        {"seed": 1, "pearson_mean": 0.32127358837674064, "folds": [0.24450781665742397, 0.37412583898752927, 0.3365770248323679, 0.3093348618224263, 0.3076399340480566, 0.3554560539126396]},
+        {"seed": 2, "pearson_mean": 0.3387882828402023, "folds": [0.24414404975250364, 0.3687206307053566, 0.3585697246901691, 0.39421508930623533, 0.30708183273673056, 0.35999836985021827]},
+        {"seed": 3, "pearson_mean": 0.3378119343519211, "folds": [0.24738614896312355, 0.36150245890021326, 0.3617303575389087, 0.36317972593009473, 0.32884292274713517, 0.3642299920320511]}
+      ],
+      "local_mean_over_seeds": 0.332624601856288,
+      "local_std_over_seeds": 0.008036269630132785,
+      "note": "Complete 3-seed local HEST run using the same UNI/STFlow settings as HCC; mean matches the paper Table 1 value, with higher across-seed variation locally."
     },
     "HEST_HCC_STFlow_UNI": {
       "source_dataroot": "/home/user/st_data/hest_bench_linked",
