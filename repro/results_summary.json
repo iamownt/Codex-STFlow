@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-16",
+  "updated": "2026-06-18",
   "environment": {
     "python": "3.12.7",
     "torch": "2.7.1+cu128",
@@ -11,6 +11,13 @@
       "datasets": ["CCRCC", "COAD", "HCC", "IDC", "LUNG", "LYMPH", "PAAD", "PRAD", "READ", "SKCM"],
       "local_mean": 0.40179077332652396,
       "paper_table1": {"mean": 0.415}
+    },
+    "HEST_prior_guided_STFlow_UNI2_mean_over_readme_tasks": {
+      "datasets": ["IDC", "PRAD", "PAAD", "SKCM", "COAD", "READ", "CCRCC", "LUNG", "LYMPH_IDC"],
+      "local_mean": 0.442436410492907,
+      "hest_uni2_ridge_reproduction": {"mean": 0.41417081290129487},
+      "delta_vs_hest_uni2_ridge_reproduction": 0.028265597591612145,
+      "note": "Prior-guided STFlow recipe with UNI2-h embeddings, train-only PCA256 Ridge alpha=30000, and test-slide prediction smoothing."
     },
     "STImage_STFlow_UNI_constructed_mean_over_datasets": {
       "datasets": ["Brain", "Breast", "Colon", "Mouth", "Prostate", "Skin", "Stomach"],
@@ -229,6 +236,28 @@
       "local_mean": -0.0020253580311934186,
       "local_std": 0.10669234916273916,
       "caveat": "Constructed from the paper appendix rule: human Visium cancer Stomach samples with an 8:1:1 slide split and locally computed top 50 HVGs. The official STImage splits/HVG list are not present in upstream STFlow. The evaluator excludes NaN Pearson values from constant genes before aggregate averaging."
+    },
+    "HEST_prior_guided_STFlow_UNI2_all_tasks": {
+      "source_dataroot": "/home/user/st_data/hest_uni2_repro/official_bench_all",
+      "embed_dataroot": "/home/user/st_data/hest_uni2_repro/official_embeddings_all",
+      "result": "repro/results/prior_guided_hest/prior_guided_uni2_h_all_tasks::26-06-18-10-25-00/dataset_results.json",
+      "config": "repro/configs/prior_guided_uni2_h_all_tasks.yaml",
+      "method": "UNI2-h embeddings; StandardScaler + PCA(256); Ridge alpha=30000; K=8 prediction smoothing with self weight 0.75",
+      "hest_uni2_ridge_reproduction_mean": 0.41417081290129487,
+      "local_mean": 0.442436410492907,
+      "delta_vs_hest_uni2_ridge_reproduction": 0.028265597591612145,
+      "improved_tasks": "9/9",
+      "per_task": {
+        "IDC": {"hest_uni2_ridge": 0.589785925410688, "prior_guided": 0.6018247053027154, "delta": 0.012038779892027396},
+        "PRAD": {"hest_uni2_ridge": 0.35660694777965546, "prior_guided": 0.3948873352259398, "delta": 0.038280387446284314},
+        "PAAD": {"hest_uni2_ridge": 0.5002071153124173, "prior_guided": 0.5035600649813812, "delta": 0.0033529496689638227},
+        "SKCM": {"hest_uni2_ridge": 0.6608991906046868, "prior_guided": 0.6810599129647017, "delta": 0.02016072236001487},
+        "COAD": {"hest_uni2_ridge": 0.30178686674684285, "prior_guided": 0.3579371360689402, "delta": 0.056150269322097324},
+        "READ": {"hest_uni2_ridge": 0.2226838815398514, "prior_guided": 0.2512289230339229, "delta": 0.0285450414940715},
+        "CCRCC": {"hest_uni2_ridge": 0.2640012994777256, "prior_guided": 0.2814581546346502, "delta": 0.017456855156924578},
+        "LUNG": {"hest_uni2_ridge": 0.5588673888891935, "prior_guided": 0.6046342988312244, "delta": 0.04576690994203092},
+        "LYMPH_IDC": {"hest_uni2_ridge": 0.27269870035059285, "prior_guided": 0.30533716339268724, "delta": 0.03263846304209439}
+      }
     },
     "HEST_HCC_UNI_ridge_smoke": {
       "result": "repro/results/hest_linprobe/hcc_uni_smoke::26-06-15-22-34-43/HCC/uni_v1_official/results_kfold.json",

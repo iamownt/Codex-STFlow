@@ -1,0 +1,33 @@
+source_dataroot: /home/user/st_data/hest_uni2_repro/official_bench_all
+embed_dataroot: /home/user/st_data/hest_uni2_repro/official_embeddings_all
+save_dir: /home/user/st_data/Codex-STFlow/repro/results/prior_guided_hest
+baseline_results_path: /home/user/st_data/hest_uni2_repro/results/uni2_h_all_tasks_official::26-06-16-20-57-29/dataset_results.json
+
+feature_encoder: uni_v2
+exp_code: prior_guided_uni2_h_all_tasks
+gene_list: var_50genes.json
+normalize_method: log1p
+precision: fp32
+
+datasets:
+  - IDC
+  - PRAD
+  - PAAD
+  - SKCM
+  - COAD
+  - READ
+  - CCRCC
+  - LUNG
+  - LYMPH_IDC
+
+seed: 1
+threads: 16
+run_hest_baseline: true
+
+latent_dim: 256
+alpha: 30000.0
+fit_intercept: false
+max_iter: 1000
+smooth_k: 8
+smooth_self_weight: 0.75
+smooth_radius_percentile: 95.0

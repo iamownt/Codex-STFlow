@@ -11,6 +11,7 @@ pandas
 pillow
 scanpy
 scikit-learn
+PyYAML
 scipy
 scprep
 socksio

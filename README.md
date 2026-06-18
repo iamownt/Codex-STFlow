@@ -134,6 +134,32 @@ for seed in 1 2 3; do
 done
 ```
 
+## Prior-Guided STFlow UNI2-h
+
+The strongest current STFlow-side recipe is a prior-guided UNI2-h benchmark.
+It fits a train-only `StandardScaler + PCA(256) + Ridge(alpha=30000)` morphology
+prior and applies light spatial smoothing to held-out predictions inside each
+test slide. This uses no test expression.
+
+Run from `/home/user/st_data/Codex-STFlow`:
+
+```bash
+OPENBLAS_NUM_THREADS=16 OMP_NUM_THREADS=16 MKL_NUM_THREADS=16 NUMEXPR_NUM_THREADS=16 \
+.venv/bin/python -m stflow.app.flow.prior_guided \
+  --config repro/configs/prior_guided_uni2_h_all_tasks.yaml
+```
+
+Completed run:
+
+- Result directory: `repro/results/prior_guided_hest/prior_guided_uni2_h_all_tasks::26-06-18-10-25-00`
+- Result JSON: `repro/results/prior_guided_hest/prior_guided_uni2_h_all_tasks::26-06-18-10-25-00/dataset_results.json`
+- HEST UNI2-h Ridge baseline average: `0.4142`
+- Prior-guided STFlow average: `0.4424`
+- Delta: `+0.0283`
+- Improved tasks: `9/9`
+
+Details are in `repro/PRIOR_GUIDED_STFLOW.md`.
+
 ## STImage Setup
 
 Prepare STImage Colon from raw STimage-1K4M:
@@ -191,6 +217,7 @@ CUDA_VISIBLE_DEVICES=1 .venv/bin/python -m stflow.app.flow.train \
 - Excluded non-finite per-gene Pearson values from aggregate metrics for constant-gene evaluation cases.
 - Fixed HDF5 embedding append dtype handling for larger HEST slides.
 - Added scripts for HEST symlink layout, STImage-Bench construction, and direct STImage embedding extraction.
+- Added a prior-guided UNI2-h spatial Ridge recipe under `stflow.app.flow.prior_guided`.
 
 ## Next Runs
 
